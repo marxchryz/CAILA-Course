@@ -1,0 +1,16 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>How Attackers Weaponize Open Redirect Vulnerabilities</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles3.css" type="text/css" />
+  
+    <script type="text/javascript">
+        function in_frame () { try { return window.self !== window.top; } catch (e) { return true; } }
+        if (!in_frame()) {
+            var page = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+            window.location = 'index.html#' + page;
+        }
+    </script>
+</head>
+<body><div class="page"><h1 class="title">How Attackers Weaponize Open Redirect Vulnerabilities</h1><br/>Attackers can weaponize this by finding open redirect vulnerabilities in trusted domains. Let's take Facebook as an example. Facebook has its own URL redirection located in l.php (short for Link Shim)<br /><br /><a href="https://facebook.com/l.php?u=https://google.com">https://facebook.com/l.php?u=https://google.com</a><br /><a href="https://l.facebook.com/l.php?u=https://google.com">https://l.facebook.com/l.php?u=https://google.com</a><br /><br />If an attacker sends this link (<a href="https://facebook.com/l.php?u=https://google.com">https://facebook.com/l.php?u=https://attacker.com</a>) to his victim, the victim might think that “there is nothing suspicious here, it is just a link from facebook”. But what the victim does not know, is that he will be redirected to the attacker's Facebook phishing page (attacker.com). The victim may still think that the site is the legitimate Facebook and he will input his email and password. Once the victim inputs his credentials, the attacker will have access to the victim's account.<br /><br />That's how attackers can use open redirect vulnerabilities in combination to their phishing attacks. Luckily, Facebook's link shim is safe against open redirect vulnerability so we have nothing to worry about in Facebook.<br /><br />Now, what can developers do to secure their websites against open redirect vulnerabilities? Let's try to recreate Facebook's link shim.</div></body></html>

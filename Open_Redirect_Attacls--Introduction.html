@@ -1,0 +1,16 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Introduction</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles3.css" type="text/css" />
+  
+    <script type="text/javascript">
+        function in_frame () { try { return window.self !== window.top; } catch (e) { return true; } }
+        if (!in_frame()) {
+            var page = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+            window.location = 'index.html#' + page;
+        }
+    </script>
+</head>
+<body><div class="page"><h1 class="title">Introduction</h1><br/>URL redirection to untrusted site, or open redirect, is a vulnerability in which a web application accepts a user controlled input. This input contains a link to an external site in which the user will be redirected. This vulnerability is typically used by attackers in conducting phishing attacks.<br /><br />Here's an example, let's assume that we have a site entitled mysite.com. There is a url in mysite.com that is /redirect.php?url=logout.php. The purpose of this is when a user clicks the <a href="https://mysite.com/redirect.php?url=logout.php,">https://mysite.com/redirect.php?url=logout.php</a>. the user will be logged out.<br /><br />The problem arises here if an attacker changes this link to <a href="https://mysite.com/redirect.php?url=https://attacker.com">https://mysite.com/redirect.php?url=https://attacker.com</a> . An unknowing victim will think that the site that he clicked is “mysite.com” but what he does not know is he will be redirected to attacker.com<br /><br /></div></body></html>

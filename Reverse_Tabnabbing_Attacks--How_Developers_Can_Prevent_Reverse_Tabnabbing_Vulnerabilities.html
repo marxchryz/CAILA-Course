@@ -1,0 +1,16 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>How Developers Can Prevent Reverse Tabnabbing Vulnerabilities</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles3.css" type="text/css" />
+  
+    <script type="text/javascript">
+        function in_frame () { try { return window.self !== window.top; } catch (e) { return true; } }
+        if (!in_frame()) {
+            var page = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+            window.location = 'index.html#' + page;
+        }
+    </script>
+</head>
+<body><div class="page"><h1 class="title">How Developers Can Prevent Reverse Tabnabbing Vulnerabilities</h1><br/>Securing websites from reverse tabnabbing is easy but it is usually forgotten.<br /><br />To prevent the newly opened tab in accessing its parent/opener, the following steps must be done:<br />1. Find all anchor tags that has a target="_blank" (the _blank is what is responsible for the opening of the clicked URL in a new tab)<br />2. Add this attribute to the anchor tag <code><span style="color:#d54e53;">rel=</span></code><code><span style="color:#b9ca4a;">"noopener noreferrer nofollow"</span></code><br /><br />Let's explain what are purpose of the words above. The noopener makes the window.opener of the newly opened tab equal to “null”. Which means that the newly opened tab won't have access to window.opener.location.href. The noreferrer value is similar to the noopener, the only different is that noreferrer will hide the referrer's (old tab) URL. This means that the new tab won't have access to the old tab, even if just the old tabs URL. Lastly, the nofollow tells search engines such as Google to disregard the new tab in their page ranking algorithm.<br /><br />Together, this three provides the sufficient protection against reverse tabnabbing attacks.<br /><br />References:<br /><a href="https://hackernoon.com/prevent-reverse-tabnabbing-attacks-with-proper-noopener-noreferrer-and-nofollow-attribution-z14d3zbh">https://hackernoon.com/prevent-reverse-tabnabbing-attacks-with-proper-noopener-noreferrer-and-nofollow-attribution-z14d3zbh</a></div></body></html>

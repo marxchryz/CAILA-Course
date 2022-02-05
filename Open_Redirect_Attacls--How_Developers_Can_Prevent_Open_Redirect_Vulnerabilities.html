@@ -1,0 +1,16 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>How Developers Can Prevent Open Redirect Vulnerabilities</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles3.css" type="text/css" />
+  
+    <script type="text/javascript">
+        function in_frame () { try { return window.self !== window.top; } catch (e) { return true; } }
+        if (!in_frame()) {
+            var page = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+            window.location = 'index.html#' + page;
+        }
+    </script>
+</head>
+<body><div class="page"><h1 class="title">How Developers Can Prevent Open Redirect Vulnerabilities</h1><br/>Securing against open redirect vulnerability is almost the same as securing against phishing attacks - by validating URLs and displaying it to the user.<br /><br />Let's assume a URL of <a href="https://mysite.com/redirect.php?url=logout.php">https://mysite.com/redirect.php?url=logout.php</a> What we need to do to protect this from open redirect is as follows:<br />1. Get the value of the “url” parameter.<br />2. Get the domain states in the “url” parameter. In this case, it is “mysite.com”.<br />3. Compare the mysite.com against the specified blacklisted and whitelisted domains.<br />4. If the domain is whitelisted, just redirect automatically. If the domain is blacklisted, display a “Link Blocked” modal. But if the link is just normal, just display a warning showing that the user will be redirected to a separate site.<br /><br />If an IP address is blocked instead of a domain. The first thing that we need to do is simplify the IP address, then proceed to steps 3-4. Take note that there are different alternative IP address notations so we need to be sure to simplify everything.</div></body></html>

@@ -1,0 +1,16 @@
+<!doctype html><html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>DMARC, DKIM, and SPF Records</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles3.css" type="text/css" />
+  
+    <script type="text/javascript">
+        function in_frame () { try { return window.self !== window.top; } catch (e) { return true; } }
+        if (!in_frame()) {
+            var page = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+            window.location = 'index.html#' + page;
+        }
+    </script>
+</head>
+<body><div class="page"><h1 class="title">DMARC, DKIM, and SPF Records</h1><br/>Domain-based Message Authentication, Reporting, and Conformance (DMARC), DomainKeys Identified Mail (DKIM), and Sender Policy Framework(SPF) records are all used to enhance email security.<br /><br />SPF enables senders to specify which IP addresses or hosts are permitted to send mail on behalf of a specific domain. This means that when an email is sent, the email providers such as Gmail will check for the SPF records to see if the IP address that sent the email is linked to the email of the sender.<br /><br />DKIM generates an encryption key and digital signature that certify that an email message was not forwarded or altered in any way. DKIM relies on cryptography with the use of public and private keys to determine that the email is not altered.<br /><br />DMARC combines the SPF and DKIM authentication procedures into a single framework and enables domain owners to specify how email from their domain should be treated in the event of an authorization test failure. The action to be done on the message are either “none”, “quarantine”, or “reject”.<br /><br />This rougly sums up the purpose of SPF, DKIM, and DMARC in email security. For deeper information about the three authentications, you may refer to the links below.<br /><br />References:<br /><a href="https://medium.com/@pendraggon87/short-primer-on-spf-dkim-and-dmarc-9827eb2f359d">https://medium.com/@pendraggon87/short-primer-on-spf-dkim-and-dmarc-9827eb2f359d</a><br /><a href="https://www.sparkpost.com/resources/infographics/explain-dkim-grandmother/">https://www.sparkpost.com/resources/infographics/explain-dkim-grandmother/</a></div></body></html>
